@@ -1,0 +1,21 @@
+# Inserts the Cline Free provider into the Harness plugin tree.
+#
+# `name` is the npm package name, so Node resolves the installed code;
+# `id` is the plugin entry id, which is also the settings namespace this
+# plugin reports for its own configuration.
+#
+# The `providers` entry is what the Models page addresses. Its own editor only
+# recognises the built-in namespaces and cannot write this, so the Cline token
+# is entered under Settings → Plugins → Cline Free; the profile exists so the
+# page shows the route as a configured provider instead of an empty first-run
+# setup card. Changing the endpoint here is optional — `baseURL` below is the
+# one the adapter actually uses.
+- insert:
+    - id: dsh-cline-free
+      name: dsh-cline-free
+      config:
+        providers:
+          cline-free:
+            displayName: Cline Free
+            apiKeyEnv: CLINE_FREE_API_KEY
+            baseURL: https://api.cline.bot/api/v1
